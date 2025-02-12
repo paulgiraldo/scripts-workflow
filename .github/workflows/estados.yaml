@@ -1,0 +1,17 @@
+name: Workflow to check status
+
+on: 
+  push:
+    branches:
+      - master 
+
+jobs:
+  check-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular un error
+        run: exit 1
+      
+      - name: Ejecutar step de notificacion
+        if: always()
+        run: echo "El workflow finalizo..."
